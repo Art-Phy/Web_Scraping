@@ -9,7 +9,7 @@
 
 > ##### sobre la página web haz click derecho y dale a 'Inspeccionar' para saber cómo está catalogada la información que te interesa.
 
-
+------------------
 ### Qué he usado
 
  - Visual Studio Code
