@@ -1,9 +1,6 @@
 ## Bienvenid@s a Web Scraping
 
-#### Es un progama no muy complejo para practicar Python, para principiantes.
-
 #### El Web Scraping es una forma de sacar los datos que nos interesan de un sitio web.
-#### El programa en si no requiere de mucho código, va a ser sobre una única web, pero si hace falta investigar un poco sobre la web en cuestión para afinar más con los datos.
 #### Necesitaréis encontrar en el HTML los elementos que contienen los datos sobre los que queréis sacar la información. Saber si los datos están dentro de \'div', \'article', etc.
 #### En mi caso, he usado la web de [Valencia Secreta](https://valenciasecreta.com), y me interesa el tema de gastronomía. He investigado un poco y he visto que la información que a mi me interesa se encuentra con etiqueta \'a'.
 
