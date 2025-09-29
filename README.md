@@ -1,21 +1,20 @@
-## Bienvenid@s a Web Scraping
+### Bienvenid@s a Web Scraping
 
 ##### **Web Scraping es una forma de sacar los datos que nos interesan de un sitio web**
 
 ##### Necesitaréis encontrar en el HTML los elementos que contienen los datos sobre los que queréis sacar la información. Saber si los datos están dentro de \'div', \'article', etc.
+> [!NOTE]
+> ###### ✨sobre la página web haz click derecho y dale a 'Inspeccionar' para saber cómo está catalogada la información que te interesa.
 
-> ##### sobre la página web haz click derecho y dale a 'Inspeccionar' para saber cómo está catalogada la información que te interesa.
+#### 📋 Qué he usado
 
-#### Qué he usado
-
- - Visual Studio Code
- - Libro "Curso Intesivo de Python" de Eric Matthes
- - Libro "Git & GitHub desde cero" de Brais Mouredev
- - Documentación de Git [Git](https://git-scm.com)
- - Documentación de GitHub [GitHub](https://docs.github.com/es)
- - Documentación Markdown [Markdown](https://markdown.es)
- - Valencia Secreta [Web](https://valenciasecreta.com)
+- 👨‍💻 Visual Studio Code
+- 📘 Libro "Curso Intensivo de Python" de Eric Matthes  
+- 📘 Libro "Git & GitHub desde cero" de Brais Moure
+- 🌐 [Documentación de Git](https://git-scm.com)
+- 🌐 [Documentación de GitHub](https://docs.github.com/es)
+- 🌐 [Documentación Markdown](https://markdown.es)
 
 ---
 > [!TIP]
-> ###### Si consideras útil el repositorio, apóyalo haciendo "★ Star" ¡Gracias!
+> ###### Si consideras útil el repositorio, apóyalo haciendo "★ Star" ¡Gracias! 🚀
