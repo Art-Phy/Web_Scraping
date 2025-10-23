@@ -1,7 +1,5 @@
 ### Bienvenid@s a Web Scraping
 
-##### **Web Scraping es una forma de sacar los datos que nos interesan de un sitio web**
-
 ##### Necesitaréis encontrar en el HTML los elementos que contienen los datos sobre los que queréis sacar la información. Saber si los datos están dentro de \'div', \'article', etc.
 > [!NOTE]
 > ###### ✨sobre la página web haz click derecho y dale a 'Inspeccionar' para saber cómo está catalogada la información que te interesa.
