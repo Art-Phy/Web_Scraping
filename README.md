@@ -1,8 +1,24 @@
-### Bienvenid@s a Web Scraping
+### Bienvenid@s a Tu Web Scraper 🕸️
 
-##### Necesitaréis encontrar en el HTML los elementos que contienen los datos sobre los que queréis sacar la información. Saber si los datos están dentro de \'div', \'article', etc.
-> [!NOTE]
-> ###### ✨sobre la página web haz click derecho y dale a 'Inspeccionar' para saber cómo está catalogada la información que te interesa.
+##### ✨ Busca cualquier palabra clave en los enlaces (`<a>`) de una página web.
+>[!NOTE]
+>##### Hay que llamar a los siguientes módulos:
+>######  - import requests
+>######  - from bs4 import BeautifulSoup
+>######  - import sys
+
+>[!IMPORTANT]
+> ###### Si no los tienes instalados, necesitas hacerlo primero:
+> ######  pip install requests beautifulsoup4
+
+---
+
+### 💻 **Cómo usarlo**
+
+- Ejecuta el script directamente:
+  ```bash
+  python scraping.py
+
 
 #### 📋 Qué he usado
 
