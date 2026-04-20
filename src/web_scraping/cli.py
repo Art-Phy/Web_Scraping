@@ -1,8 +1,8 @@
 
 import argparse
 
-from src.fetcher import fetch_html
-from src.parser import extract_matching_links
+from web_scraping.fetcher import fetch_html
+from web_scraping.parser import extract_matching_links
 
 
 

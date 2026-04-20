@@ -1,5 +1,5 @@
 
-from cli import run
+from web_scraping.cli import run
 
 
 
