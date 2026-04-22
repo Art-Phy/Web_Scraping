@@ -28,15 +28,15 @@ def run() -> None:
 
     try:
         html = fetch_html(args.url)
-        results = extract_matching_links(html, args.keyword)
+        results = extract_matching_links(html, args.keyword, args.url)
 
         if results:
-            print("\nCoincidencias encontradas:")
+            print("\nMatches found:")
             for index, result in enumerate(results, start=1):
-                print(f"{index}, {result}")
+                print(f"{index}. {result['text']} -> {result['href']}")
 
         else:
-            print("\nNo se encontraron coincidencias.")
+            print("\nNo matches found.")
 
     except Exception as exc:
         print(f"\nError: {exc}")
