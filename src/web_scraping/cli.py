@@ -11,11 +11,19 @@ def  build_parser() -> argparse.ArgumentParser:
     Crea y configura el parser de argumentos de la CLI
     """
     parser = argparse.ArgumentParser(
-        description="Busca enlaces que contengan una palabra clave dentro de una web"
+        description="Extract links from a web page whose text matches a keyword."
     )
-    parser.add_argument("url", help="URL de la página a analizar")
-    parser.add_argument("keyword", help="Palabra clave a buscar en los enlaces")
+    parser.add_argument("url", help="URL of the page to analyze")
+    parser.add_argument("keyword", help="Keyword to search for in link text")
     return parser
+
+
+
+def print_results(results: list[dict[str, str]]) -> None:
+        print("\nMatches found:\n")
+        for index, result in enumerate(results, start=1):
+            print(f"{index}. Text: {result['text']}")
+            print(f"    URL: {result['href']}\n")
 
 
 
@@ -31,10 +39,7 @@ def run() -> None:
         results = extract_matching_links(html, args.keyword, args.url)
 
         if results:
-            print("\nMatches found:")
-            for index, result in enumerate(results, start=1):
-                print(f"{index}. {result['text']} -> {result['href']}")
-
+            print_results(results)
         else:
             print("\nNo matches found.")
 
