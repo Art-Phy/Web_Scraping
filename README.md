@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/badge/python-3.10+-blue.svg" />
   <img src="https://img.shields.io/badge/CLI-Web%20Scraper-orange" />
   <img src="https://img.shields.io/badge/BeautifulSoup-HTML%20Parsing-green" />
-  <img src="https://img.shields.io/badge/Status-Portfolio%20Project-success" />
+  <img src="https://img.shields.io/badge/Status-v0.2.0%20Stable-success" />
   <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
 </p>
 
@@ -29,6 +29,7 @@ Herramienta **CLI desarrollada en Python** que permite analizar una página web 
 - Entrada de URL y keyword como argumentos.
 - Salida formateada y numerada.
 - Manejo básico de errores (peticiones HTTP, parsing, etc.).
+- Exportación a **CSV** y a **JSON**
 
 ---
 
@@ -36,6 +37,8 @@ Herramienta **CLI desarrollada en Python** que permite analizar una página web 
 
 ```bash
 PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog"
+
+PYTHONPATH=src python3 -m web_scraping.main "https://exmple.com" "blog" --csv results.csv --json results.json
 ```
 
 ---
@@ -62,12 +65,12 @@ PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog"
 - Preparado para ampliaciones sin romper estructura.
 - Versionado semántico con releases.
 - Flujo GitFlow (main, develop, feature/*).
+- Exportación de resultados a CSV / JSON
+- Mostrar también URLs (href) además del texto
 
 ---
 
 #### 🔭 Posibles extensiones futuras (no implementadas)
-- Exportación de resultados a CSV / JSON
-- Mostrar también URLs (href) además del texto
 - Límite de resultados (--limit)
 - Soporte para múltiples keywords
 - Logging estructurado
@@ -78,20 +81,17 @@ PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog"
 #### 📁 Project Structure
 ```
 Web_Scraping
-│
-├── src/
-│   └── web_scraping/
-│       ├── __init__.py
-│       ├── main.py        # Entry point
-│       ├── cli.py         # CLI logic
-│       ├── fetcher.py     # HTTP requests
-│       └── parser.py      # HTML parsing
-│
-├── README.md
 ├── CHANGELOG.md
-├── requirements.txt
 ├── LICENSE.md
-└── .gitignore
+├── README.md
+├── requirements.txt
+└── src
+    └── web_scraping
+        ├── cli.py
+        ├── exporter.py
+        ├── fetcher.py
+        ├── main.py
+        └── parser.py
 ```
 
 ---
