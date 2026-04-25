@@ -15,8 +15,14 @@ def  build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Extract links from a web page whose text matches a keyword."
     )
-    parser.add_argument("url", help="URL of the page to analyze")
-    parser.add_argument("keyword", help="Keyword to search for in link text")
+    parser.add_argument(
+        "url",
+        help="URL of the page to analyze",
+    )
+    parser.add_argument(
+        "keyword",
+        help="Keyword to search for in link text",
+    )
     parser.add_argument(
          "--csv",
          dest="csv_path",
@@ -26,6 +32,11 @@ def  build_parser() -> argparse.ArgumentParser:
         "--json",
         dest="json_path",
         help="Export results to a JSON file",
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        help="Limit the number of results displayed and exported",
     )
     return parser
 
@@ -49,6 +60,9 @@ def run() -> None:
     try:
         html = fetch_html(args.url)
         results = extract_matching_links(html, args.keyword, args.url)
+        
+        if args.limit is not None:
+                results = results[: args.limit]
 
         if results:
             print_results(results)
