@@ -3,6 +3,8 @@ import argparse
 
 from web_scraping.fetcher import fetch_html
 from web_scraping.parser import extract_matching_links
+from web_scraping.exporter import export_to_csv
+from web_scraping.exporter import export_to_json
 
 
 
@@ -11,11 +13,29 @@ def  build_parser() -> argparse.ArgumentParser:
     Crea y configura el parser de argumentos de la CLI
     """
     parser = argparse.ArgumentParser(
-        description="Busca enlaces que contengan una palabra clave dentro de una web"
+        description="Extract links from a web page whose text matches a keyword."
     )
-    parser.add_argument("url", help="URL de la página a analizar")
-    parser.add_argument("keyword", help="Palabra clave a buscar en los enlaces")
+    parser.add_argument("url", help="URL of the page to analyze")
+    parser.add_argument("keyword", help="Keyword to search for in link text")
+    parser.add_argument(
+         "--csv",
+         dest="csv_path",
+         help="Export results to a CSV file",
+    )
+    parser.add_argument(
+        "--json",
+        dest="json_path",
+        help="Export results to a JSON file",
+    )
     return parser
+
+
+
+def print_results(results: list[dict[str, str]]) -> None:
+        print("\nMatches found:\n")
+        for index, result in enumerate(results, start=1):
+            print(f"{index}. Text: {result['text']}")
+            print(f"    URL: {result['href']}\n")
 
 
 
@@ -28,15 +48,21 @@ def run() -> None:
 
     try:
         html = fetch_html(args.url)
-        results = extract_matching_links(html, args.keyword)
+        results = extract_matching_links(html, args.keyword, args.url)
 
         if results:
-            print("\nCoincidencias encontradas:")
-            for index, result in enumerate(results, start=1):
-                print(f"{index}, {result}")
+            print_results(results)
 
+            if args.csv_path:
+                export_to_csv(results, args.csv_path)
+                print(f"Resutls exported to CSV: {args.csv_path}")
+
+            if args.json_path:
+                export_to_json(results, args.json_path)
+                print(f"Results exported to JSON: {args.json_path}")
+                
         else:
-            print("\nNo se encontraron coincidencias.")
+            print("\nNo matches found.")
 
     except Exception as exc:
         print(f"\nError: {exc}")
