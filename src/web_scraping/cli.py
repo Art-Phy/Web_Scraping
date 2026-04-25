@@ -4,6 +4,7 @@ import argparse
 from web_scraping.fetcher import fetch_html
 from web_scraping.parser import extract_matching_links
 from web_scraping.exporter import export_to_csv
+from web_scraping.exporter import export_to_json
 
 
 
@@ -20,6 +21,11 @@ def  build_parser() -> argparse.ArgumentParser:
          "--csv",
          dest="csv_path",
          help="Export results to a CSV file",
+    )
+    parser.add_argument(
+        "--json",
+        dest="json_path",
+        help="Export results to a JSON file",
     )
     return parser
 
@@ -46,9 +52,15 @@ def run() -> None:
 
         if results:
             print_results(results)
+
             if args.csv_path:
                 export_to_csv(results, args.csv_path)
                 print(f"Resutls exported to CSV: {args.csv_path}")
+
+            if args.json_path:
+                export_to_json(results, args.json_path)
+                print(f"Results exported to JSON: {args.json_path}")
+                
         else:
             print("\nNo matches found.")
 
