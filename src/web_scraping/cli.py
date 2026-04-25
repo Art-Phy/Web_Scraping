@@ -3,6 +3,7 @@ import argparse
 
 from web_scraping.fetcher import fetch_html
 from web_scraping.parser import extract_matching_links
+from web_scraping.exporter import export_to_csv
 
 
 
@@ -15,6 +16,11 @@ def  build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("url", help="URL of the page to analyze")
     parser.add_argument("keyword", help="Keyword to search for in link text")
+    parser.add_argument(
+         "--csv",
+         dest="csv_path",
+         help="Export results to a CSV file",
+    )
     return parser
 
 
@@ -40,6 +46,9 @@ def run() -> None:
 
         if results:
             print_results(results)
+            if args.csv_path:
+                export_to_csv(results, args.csv_path)
+                print(f"Resutls exported to CSV: {args.csv_path}")
         else:
             print("\nNo matches found.")
 
