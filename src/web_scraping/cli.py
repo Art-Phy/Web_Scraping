@@ -8,6 +8,17 @@ from web_scraping.exporter import export_to_json
 
 
 
+def positive_int(value: str) -> int:
+     """
+     Ensures that the provide valie is a positive integer.
+     """
+     ivalue = int(value)
+     if ivalue <= 0:
+         raise argparse.ArgumentTypeError("Limit must be a positive integer")
+     return ivalue
+
+
+
 def  build_parser() -> argparse.ArgumentParser:
     """
     Crea y configura el parser de argumentos de la CLI
@@ -35,8 +46,8 @@ def  build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--limit",
-        type=int,
-        help="Limit the number of results displayed and exported",
+        type=positive_int,
+        help="Limit the number of results displayed and exported (mustb be > 0)",
     )
     return parser
 
