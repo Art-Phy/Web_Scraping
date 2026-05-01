@@ -64,8 +64,8 @@ PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --limit
     * parser → extracción de enlaces
     * cli → interfaz de usuario
     * exporter -> exportación de datos.
-- Arquitectura basada en src/ para mayor escalabilidad.
-- Uso de argparse para una CLI simple y extensible.
+- Arquitectura basada en **src/** para mayor escalabilidad.
+- Uso de **argparse** para una CLI simple y extensible.
 - Uso de headers personalizados para evitar bloqueos básicos.
 - Manejo de errores para mejorar la experiencia de uso.
 - Diseño ligero orientado a herramientas reales.
