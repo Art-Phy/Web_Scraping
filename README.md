@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/badge/python-3.10+-blue.svg" />
   <img src="https://img.shields.io/badge/CLI-Web%20Scraper-orange" />
   <img src="https://img.shields.io/badge/BeautifulSoup-HTML%20Parsing-green" />
-  <img src="https://img.shields.io/badge/Status-v0.2.0%20Stable-success" />
+  <img src="https://img.shields.io/badge/Status-v0.3.0%20Stable-success" />
   <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
 </p>
 
@@ -20,6 +20,7 @@ Herramienta **CLI desarrollada en Python** que permite analizar una página web 
 - Parsing de HTML mediante **BeautifulSoup**.
 - Extracción de enlaces `<a>`.
 - Filtrado por palabra clave (case-insensitive).
+- Conversión automática de enlaces relativos a URLs absolutas.
 
 ---
 
@@ -29,7 +30,8 @@ Herramienta **CLI desarrollada en Python** que permite analizar una página web 
 - Entrada de URL y keyword como argumentos.
 - Salida formateada y numerada.
 - Manejo básico de errores (peticiones HTTP, parsing, etc.).
-- Exportación a **CSV** y a **JSON**
+- Exportación a **CSV** y **JSON**.
+- Limitación de resultados mediante `--limit`.
 
 ---
 
@@ -38,7 +40,11 @@ Herramienta **CLI desarrollada en Python** que permite analizar una página web 
 ```bash
 PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog"
 
-PYTHONPATH=src python3 -m web_scraping.main "https://exmple.com" "blog" --csv results.csv --json results.json
+PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --limit 3
+
+PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --csv results.csv --json results.json
+
+PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --limit 2 --csv results.csv
 ```
 
 ---
@@ -57,8 +63,9 @@ PYTHONPATH=src python3 -m web_scraping.main "https://exmple.com" "blog" --csv re
     * fetcher → descarga HTML
     * parser → extracción de enlaces
     * cli → interfaz de usuario
-- Arquitectura basada en src/ para mayor escalabilidad.
-- Uso de argparse para una CLI simple y extensible.
+    * exporter -> exportación de datos.
+- Arquitectura basada en **src/** para mayor escalabilidad.
+- Uso de **argparse** para una CLI simple y extensible.
 - Uso de headers personalizados para evitar bloqueos básicos.
 - Manejo de errores para mejorar la experiencia de uso.
 - Diseño ligero orientado a herramientas reales.
@@ -71,10 +78,10 @@ PYTHONPATH=src python3 -m web_scraping.main "https://exmple.com" "blog" --csv re
 ---
 
 #### 🔭 Posibles extensiones futuras (no implementadas)
-- Límite de resultados (--limit)
 - Soporte para múltiples keywords
 - Logging estructurado
-- Tests automatizados con pytest
+- Test automatización con pytest
+- Mejora del manejo de encoding en textos extraídos
 
 ---
 

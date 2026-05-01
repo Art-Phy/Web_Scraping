@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+### [0.3.0] - 28.04.2026
+
+#### Added
+- Result limiting option via `--limit`
+
+#### Improved
+- CLI usability with better control over output size
+
+#### Internal
+- Validation for positive integer values in `--limit`
+
+---
+
 ### [0.2.0] - 25.04.2026
 
 #### Added
