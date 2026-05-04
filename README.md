@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/badge/python-3.10+-blue.svg" />
   <img src="https://img.shields.io/badge/CLI-Web%20Scraper-orange" />
   <img src="https://img.shields.io/badge/BeautifulSoup-HTML%20Parsing-green" />
-  <img src="https://img.shields.io/badge/Status-v0.3.0%20Stable-success" />
+  <img src="https://img.shields.io/badge/Status-v0.3.1%20Stable-success" />
   <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
 </p>
 
@@ -74,6 +74,8 @@ PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --limit
 - Flujo GitFlow (main, develop, feature/*).
 - Exportación de resultados a CSV / JSON
 - Mostrar también URLs (href) además del texto
+- Mejora del manejo de encoding en textos extraídos
+
 
 ---
 
@@ -81,7 +83,6 @@ PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --limit
 - Soporte para múltiples keywords
 - Logging estructurado
 - Test automatización con pytest
-- Mejora del manejo de encoding en textos extraídos
 
 ---
 

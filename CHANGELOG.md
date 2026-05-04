@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+### [0.3.1] - 04.05.2026
+
+#### Fixed
+- Cleaned extracted link text to reduce encoding artifacts
+- Improved handling of HTML entities and non-breaking spaces
+
+#### Internal
+- Added a dedicated text cleaning helper in the parser
+
+---
+
 ### [0.3.0] - 28.04.2026
 
 #### Added
