@@ -23,3 +23,6 @@ def export_to_json(results: list[dict[str, str]], output_path: str) -> None:
     """
     with open(output_path, "w", encoding="utf-8") as json_file:
         json.dump(results, json_file, indent=4, ensure_ascii=False)
+        data = json.load(f)
+        assert data[0]["text"] == "Blog"
+        assert data[0]["href"] == "https://example.com/blog"
