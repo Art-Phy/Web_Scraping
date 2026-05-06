@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+### [0.4.0] - 06.05.2026
+
+#### Added
+- Unit tests for HTML parser
+- Unit tests for CSV export
+- Unit tests for JSON export
+- Pytest integration
+
+#### Improved
+- Project reliability through automated testing
+
+#### Internal
+- Added test suite structure under `tests/`
+- Added pytest to project dependencies
+
+---
+
 ### [0.3.1] - 04.05.2026
 
 #### Fixed
