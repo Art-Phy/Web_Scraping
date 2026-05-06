@@ -4,7 +4,8 @@
   <img src="https://img.shields.io/badge/python-3.10+-blue.svg" />
   <img src="https://img.shields.io/badge/CLI-Web%20Scraper-orange" />
   <img src="https://img.shields.io/badge/BeautifulSoup-HTML%20Parsing-green" />
-  <img src="https://img.shields.io/badge/Status-v0.3.1%20Stable-success" />
+  <img src="https://img.shields.io/badge/pytest-Tested-blueviolet" />
+  <img src="https://img.shields.io/badge/Status-v0.4.0%20Stable-success" />
   <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
 </p>
 
@@ -21,6 +22,7 @@ Herramienta **CLI desarrollada en Python** que permite analizar una página web 
 - Extracción de enlaces `<a>`.
 - Filtrado por palabra clave (case-insensitive).
 - Conversión automática de enlaces relativos a URLs absolutas.
+- Limpieza básica de texto y manejo de encoding.
 
 ---
 
@@ -32,6 +34,7 @@ Herramienta **CLI desarrollada en Python** que permite analizar una página web 
 - Manejo básico de errores (peticiones HTTP, parsing, etc.).
 - Exportación a **CSV** y **JSON**.
 - Limitación de resultados mediante `--limit`.
+- Validación de argumentos CLI.
 
 ---
 
@@ -54,6 +57,7 @@ PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --limit
 - HTTP: requests
 - Parsing HTML: BeautifulSoup
 - CLI: argparse
+- Testing: pytest
 - Control de versiones: Git + GitFlow
 
 ---
@@ -72,17 +76,25 @@ PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --limit
 - Preparado para ampliaciones sin romper estructura.
 - Versionado semántico con releases.
 - Flujo GitFlow (main, develop, feature/*).
-- Exportación de resultados a CSV / JSON
-- Mostrar también URLs (href) además del texto
-- Mejora del manejo de encoding en textos extraídos
+- Exportación de resultados a CSV / JSON.
+- Conversión automática de URLs relativas.
+- Limpieza de texto para reducir artefactos de enconding.
+- Tests automatizados para parser y exportación.
 
+---
 
+#### 🧪 Testing
+```
+PYTHONPATH=src pytest
+```
 ---
 
 #### 🔭 Posibles extensiones futuras (no implementadas)
 - Soporte para múltiples keywords
 - Logging estructurado
-- Test automatización con pytest
+- Test de integración para CLI
+- Mocking de requests HTTP
+- Soporte para scraping dinámico con JavaScript
 
 ---
 
@@ -93,6 +105,10 @@ Web_Scraping
 ├── LICENSE.md
 ├── README.md
 ├── requirements.txt
+├── tests
+│   ├── test_basic.py
+│   ├── test_exporter.py
+│   └── test_parser.py
 └── src
     └── web_scraping
         ├── cli.py
