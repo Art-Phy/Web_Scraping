@@ -58,3 +58,25 @@ def test_cli_handles_no_results(mock_fetch, mock_extract, capsys):
     captured = capsys.readouterr()
 
     assert "No matches found" in captured.out
+
+
+
+@patch("web_scraping.cli.fetch_html")
+def test_cli_handles_fetch_errors(mock_fetch, capsys):
+    """
+    Tests that the CLI displays a controlled error message when fetching the HTML fails.
+    """
+    mock_fetch.side_effect = Exception("Connection failed")
+
+    test_args = [
+        "prog",
+        "https://example.com",
+        "blog",
+    ]
+
+    with patch.object(sys, "argv", test_args):
+        run()
+
+    captured = capsys.readouterr()
+
+    assert "Error: Connection failed" in captured.out
