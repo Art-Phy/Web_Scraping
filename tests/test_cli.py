@@ -80,3 +80,55 @@ def test_cli_handles_fetch_errors(mock_fetch, capsys):
     captured = capsys.readouterr()
 
     assert "Error: Connection failed" in captured.out
+
+
+
+@patch("web_scraping.cli.export_to_json")
+@patch("web_scraping.cli.export_to_csv")
+@patch("web_scraping.cli.extract_matching_links")
+@patch("web_scraping.cli.fetch_html")
+def test_cli_calls_exporters_when_flags_are_used(
+    mock_fetch,
+    mock_extract,
+    mock_export_csv,
+    mock_export_json,
+    capsys,
+):
+    """
+    Tests that the CLI calls CSV and JSON exporters when
+    the corresponding flags are provided.
+    """
+    mock_fetch.return_value = "<html></html>"
+    mock_extract.return_value = [
+        {
+            "text": "Blog",
+            "href": "https://example.com/blog",
+        }
+    ]
+
+    test_args = [
+        "prog",
+        "https://example.com",
+        "blog",
+        "--csv",
+        "results.csv",
+        "--json",
+        "results.json",
+    ]
+
+    with patch.object(sys, "argv", test_args):
+        run()
+
+    mock_export_csv.assert_called_once_with(
+        mock_extract.return_value,
+        "results.csv",
+    )
+    mock_export_json.assert_called_once_with(
+        mock_extract.return_value,
+        "results.json",
+    )
+
+    captured = capsys.readouterr()
+
+    assert "Results exported to CSV: results.csv" in captured.out
+    assert "Results exported to JSON: results.json" in captured.out
