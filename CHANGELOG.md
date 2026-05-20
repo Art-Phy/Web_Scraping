@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+### [0.5.0] - 20.05.2026
+
+#### Added
+- CLI tests for successful result output
+- CLI tests for no-results scenarios
+- CLI tests for controlled exception handling
+- CLI tests for CSV/JSON export options
+
+#### Improved
+- Overall project reliability through broader automated testing
+
+#### Internal
+- Added mocking for CLI dependency isolation
+- Added stdout capture testing with pytest
+
+---
+
 ### [0.4.0] - 06.05.2026
 
 #### Added
