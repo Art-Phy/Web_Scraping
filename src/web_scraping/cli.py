@@ -80,7 +80,7 @@ def run() -> None:
 
             if args.csv_path:
                 export_to_csv(results, args.csv_path)
-                print(f"Resutls exported to CSV: {args.csv_path}")
+                print(f"Results exported to CSV: {args.csv_path}")
 
             if args.json_path:
                 export_to_json(results, args.json_path)
