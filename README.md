@@ -1,11 +1,11 @@
-### Web Scraping CLI 🕸️
+### Web Scraping CLI
 
 <p align="left">
   <img src="https://img.shields.io/badge/python-3.10+-blue.svg" />
   <img src="https://img.shields.io/badge/CLI-Web%20Scraper-orange" />
   <img src="https://img.shields.io/badge/BeautifulSoup-HTML%20Parsing-green" />
   <img src="https://img.shields.io/badge/pytest-Tested-blueviolet" />
-  <img src="https://img.shields.io/badge/Status-v0.4.0%20Stable-success" />
+  <img src="https://img.shields.io/badge/Status-v0.5.0%20Stable-success" />
   <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
 </p>
 
@@ -13,7 +13,7 @@ Herramienta **CLI desarrollada en Python** que permite analizar una página web 
 
 ---
 
-### ✨ Funcionalidades
+### Funcionalidades
 
 #### Core
 
@@ -38,7 +38,7 @@ Herramienta **CLI desarrollada en Python** que permite analizar una página web 
 
 ---
 
-#### 📊 Ejemplo de uso
+#### Ejemplo de uso
 
 ```bash
 PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog"
@@ -52,7 +52,7 @@ PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --limit
 
 ---
 
-#### 🛠️ Stack tecnológico
+#### Stack tecnológico
 - Lenguaje: Python
 - HTTP: requests
 - Parsing HTML: BeautifulSoup
@@ -62,7 +62,7 @@ PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --limit
 
 ---
 
-#### 🧠 Decisiones técnicas destacables
+#### Decisiones técnicas destacables
 - Separación de responsabilidades en módulos:
     * fetcher → descarga HTML
     * parser → extracción de enlaces
@@ -78,27 +78,37 @@ PYTHONPATH=src python3 -m web_scraping.main "https://example.com" "blog" --limit
 - Flujo GitFlow (main, develop, feature/*).
 - Exportación de resultados a CSV / JSON.
 - Conversión automática de URLs relativas.
-- Limpieza de texto para reducir artefactos de enconding.
-- Tests automatizados para parser y exportación.
+- Limpieza de texto para reducir artefactos de encoding.
+- Tests automatizados para parser, exporter y CLI.
 
 ---
 
-#### 🧪 Testing
+#### Testing
 ```
 PYTHONPATH=src pytest
 ```
+* Extracción correcta de enlaces
+* Conversión de URLs relativas a absolutas
+* Ignorar enlaces inválidos
+* Exportación correcta a CSV
+* Exportación correcta a JSON
+* Salida CLI con resultados
+* Escenarios sin coincidencias
+* Manejo de errores en CLI
+* Validación de exportación desde CLI
+
 ---
 
-#### 🔭 Posibles extensiones futuras (no implementadas)
+#### Posibles extensiones futuras (no implementadas)
 - Soporte para múltiples keywords
-- Logging estructurado
-- Test de integración para CLI
-- Mocking de requests HTTP
+- Logging estructurado (--verbose)
+- Mocking de requests HTTP para tests del fetcher
+- Retry/timeout handling más avanzado
 - Soporte para scraping dinámico con JavaScript
 
 ---
 
-#### 📁 Project Structure
+#### Project Structure
 ```
 Web_Scraping
 ├── CHANGELOG.md
@@ -107,6 +117,7 @@ Web_Scraping
 ├── requirements.txt
 ├── tests
 │   ├── test_basic.py
+│   ├── test_cli.py
 │   ├── test_exporter.py
 │   └── test_parser.py
 └── src
